@@ -1,0 +1,13 @@
+<!-- This statement sets up the inheritance link between this and the base template (base.html)-->
+{% extends "base.html" %}
+
+<!-- When rendering index.html, Jinja sees the 'block content' statement and knows that 
+     it needs to embed this block into the base.html file (combining the templates) -->
+
+<!-- insert this code into the 'content' block in the base template file -->
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
